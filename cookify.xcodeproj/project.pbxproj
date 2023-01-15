@@ -18,6 +18,9 @@
 		EE1B686F2974453300412267 /* IngredientsSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1B686E2974453300412267 /* IngredientsSelector.swift */; };
 		EE1B687229744DC600412267 /* IngredientsGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1B687129744DC600412267 /* IngredientsGrid.swift */; };
 		EE1B6874297451A200412267 /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1B6873297451A200412267 /* CategoryRow.swift */; };
+		EE1B687629746E4A00412267 /* SelectedIngredientsBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1B687529746E4A00412267 /* SelectedIngredientsBox.swift */; };
+		EE1B687B2974745200412267 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1B687A2974745200412267 /* Ingredient.swift */; };
+		EE1B687D2974755700412267 /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1B687C2974755700412267 /* IngredientCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +55,9 @@
 		EE1B686E2974453300412267 /* IngredientsSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsSelector.swift; sourceTree = "<group>"; };
 		EE1B687129744DC600412267 /* IngredientsGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsGrid.swift; sourceTree = "<group>"; };
 		EE1B6873297451A200412267 /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
+		EE1B687529746E4A00412267 /* SelectedIngredientsBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedIngredientsBox.swift; sourceTree = "<group>"; };
+		EE1B687A2974745200412267 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		EE1B687C2974755700412267 /* IngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,7 @@
 		EE1B684129743EDD00412267 /* cookify */ = {
 			isa = PBXGroup;
 			children = (
+				EE1B68772974741A00412267 /* Model */,
 				EE1B684229743EDD00412267 /* cookifyApp.swift */,
 				EE1B684429743EDD00412267 /* ContentView.swift */,
 				EE1B684629743EDE00412267 /* Assets.xcassets */,
@@ -143,8 +150,18 @@
 				EE1B686E2974453300412267 /* IngredientsSelector.swift */,
 				EE1B687129744DC600412267 /* IngredientsGrid.swift */,
 				EE1B6873297451A200412267 /* CategoryRow.swift */,
+				EE1B687529746E4A00412267 /* SelectedIngredientsBox.swift */,
+				EE1B687C2974755700412267 /* IngredientCell.swift */,
 			);
 			path = IngredientsSelector;
+			sourceTree = "<group>";
+		};
+		EE1B68772974741A00412267 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EE1B687A2974745200412267 /* Ingredient.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,8 +295,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE1B686D29743F0800412267 /* WelcomeScreen.swift in Sources */,
+				EE1B687629746E4A00412267 /* SelectedIngredientsBox.swift in Sources */,
+				EE1B687D2974755700412267 /* IngredientCell.swift in Sources */,
 				EE1B686F2974453300412267 /* IngredientsSelector.swift in Sources */,
 				EE1B687229744DC600412267 /* IngredientsGrid.swift in Sources */,
+				EE1B687B2974745200412267 /* Ingredient.swift in Sources */,
 				EE1B684529743EDD00412267 /* ContentView.swift in Sources */,
 				EE1B6874297451A200412267 /* CategoryRow.swift in Sources */,
 				EE1B684329743EDD00412267 /* cookifyApp.swift in Sources */,

@@ -8,23 +8,31 @@
 import SwiftUI
 
 struct IngredientsSelector: View {
+    
+    @State var selectedIngredients = [Ingredient(id: UUID().uuidString,name: "Apple", image: Image("ingredient2")),Ingredient(id: UUID().uuidString,name: "Orange", image: Image("ingredient5")),Ingredient(id: UUID().uuidString,name: "Watermelon", image: Image("ingredient11"))]
+
     var body: some View {
         
         ScrollView {
             
             VStack{
                 
-                Rectangle()
-                    .foregroundColor(.gray.opacity(0.2))
-                    .cornerRadius(10)
-                    .frame(height: 300)
-                    .padding()
+                HStack {
+                    Text("Your selected Ingredients")
+                        .font(.title3)
+                        .padding(.leading)
                     
+                    Spacer()
+                }
                 
+                SelectedIngredientsBox(selectedIngredients: $selectedIngredients)
+                    .padding()
                 
+                Divider()
                 HStack {
                     Text("Select the things you have at home.")
                         .font(.title2)
+                        .bold()
                         .padding(.leading)
                     
                     Spacer()
@@ -34,7 +42,7 @@ struct IngredientsSelector: View {
                     .padding(.leading)
                 HStack {
                     Text("Ingredients")
-                        .font(.headline)
+                        .font(.title3)
                         .padding(.leading)
                     
                     Spacer()
@@ -44,7 +52,15 @@ struct IngredientsSelector: View {
                 
             
         
-                IngredientsGrid()
+                IngredientsGrid { selectedIngredient in
+                    
+                    if !self.selectedIngredients.contains(where: { ingredient in
+                        return ingredient.id == selectedIngredient.id
+                    }){
+                        selectedIngredients.append(selectedIngredient)
+                    }
+                    
+                }
                 
                 
                 

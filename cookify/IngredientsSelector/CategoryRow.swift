@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct CategoryRow: View {
+    
+    var categories = ["Fruit", "Vegetables", "Meats", "Diary", "Carbs", "Fats"]
     var body: some View {
         
         VStack {
             HStack {
                 Text("Categories")
-                    .font(.headline)
+                    .font(.title3)
                     
                 Spacer()
             }
@@ -25,14 +27,15 @@ struct CategoryRow: View {
                 
                 HStack(spacing:15){
                     
-                    ForEach(0..<10){ i in
+                    ForEach(categories, id: \.self){ category in
                         VStack {
                             Rectangle()
                                 .foregroundColor(.green)
                                 .cornerRadius(10)
                                 .frame(width: 100, height:60)
                             
-                            Text("Category \(i)")
+                            Text(category)
+                                .padding(.bottom)
                         }
                     }
                     
