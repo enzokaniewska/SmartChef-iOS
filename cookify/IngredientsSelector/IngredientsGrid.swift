@@ -9,12 +9,18 @@ import SwiftUI
 
 struct IngredientsGrid: View {
     
-    var didSelectItem : (Ingredient)->Void
+    @State var selectedCategory: IngredientType = .meat
     
-    @State var ingredients = Ingredient.getTestList()
+    var didSelectItem : (Ingredient)->Void
+    var ingredients = Ingredient.getTestList()
+    var filteredIngredients: [Ingredient]{
+        ingredients.filter{ $0.category == selectedCategory}
+    }
+    let columns = [GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible())]
+   
     var body: some View {
         
-        LazyVGrid(columns: [GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible())]) {
+        LazyVGrid(columns: columns , spacing: 40) {
             
             ForEach(ingredients){ingredient in
                 
@@ -22,11 +28,14 @@ struct IngredientsGrid: View {
                     .onTapGesture {
                         didSelectItem(ingredient)
                     }
+                    .frame(width: 80, height: 80)
                 
             }
             
         }
-        .padding(.horizontal)
+        .padding(.horizontal, 6)
+        
+        
     }
 }
 

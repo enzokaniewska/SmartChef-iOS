@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct IngredientCell: View {
     
@@ -13,31 +14,37 @@ struct IngredientCell: View {
     
     var body: some View {
         
-        
-        VStack(alignment: .center) {
+        GeometryReader{ proxy in
             
-            ZStack {
-                Rectangle()
-                    .foregroundColor(.gray.opacity(0.2))
-                    .cornerRadius(10)
-                .frame(width: 100, height:100)
+            let width = proxy.size.width
+            let height = proxy.size.height
+            
+            VStack(alignment: .center) {
                 
-                ingredient.image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 50, height: 50)
+                Rectangle()
+                    .foregroundColor(Color(UIColor.quaternaryLabel))
+                    .cornerRadius(8)
+                    .frame(width: width, height:height)
+                    .overlay{
+                        ingredient.image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: width*0.6, height: height*0.6)
+                    }
+                    
+                
+                Text(ingredient.name)
+                    .font(.subheadline)
+                
             }
-
-            Text(ingredient.name)
-                .font(.subheadline)
-                .foregroundColor(.black)
-            
         }
+        
     }
 }
 
 struct IngredientCell_Previews: PreviewProvider {
     static var previews: some View {
-        IngredientCell(ingredient: Ingredient(id: UUID().uuidString,name: "Apple", image: Image("ingredient2")))
+        IngredientCell(ingredient: Ingredient(id: UUID().uuidString,name: "Apple", image: Image("ingredient2"), category: .fruit))
+            .frame(width: 100, height: 100)
     }
 }

@@ -9,7 +9,8 @@ import SwiftUI
 
 struct CategoryRow: View {
     
-    var categories = ["Fruit", "Vegetables", "Meats", "Diary", "Carbs", "Fats"]
+    @Binding var selectedCategory:IngredientType
+    
     var body: some View {
         
         VStack {
@@ -17,37 +18,36 @@ struct CategoryRow: View {
                 Text("Categories")
                     .font(.title3)
                     
+                    
                 Spacer()
             }
             .padding(.top)
-            
+            .padding(.leading)
             
             
             ScrollView(.horizontal){
                 
                 HStack(spacing:15){
                     
-                    ForEach(categories, id: \.self){ category in
-                        VStack {
-                            Rectangle()
-                                .foregroundColor(.green)
-                                .cornerRadius(10)
-                                .frame(width: 100, height:60)
-                            
-                            Text(category)
-                                .padding(.bottom)
-                        }
+                    ForEach(IngredientType.allCases, id: \.self){ category in
+                        CategoryCell(category: category)
+                            .onTapGesture {
+                                selectedCategory = category
+                            }
+                            .foregroundColor(category == selectedCategory ? .green : .gray)
                     }
                     
                 }
                 .padding(.horizontal)
             }
+            .scrollIndicators(.hidden)
+            
         }
     }
 }
 
 struct CategoryRow_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryRow()
+        CategoryRow(selectedCategory: .constant(.fruit))
     }
 }

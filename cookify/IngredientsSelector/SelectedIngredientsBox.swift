@@ -12,27 +12,77 @@ struct SelectedIngredientsBox: View {
     @Binding var selectedIngredients:[Ingredient]
     
     let columns = [
-           GridItem(.adaptive(minimum:100)),
-           GridItem(.adaptive(minimum:100)),
-           GridItem(.adaptive(minimum:100))
+           GridItem(.adaptive(minimum:80)),
+           GridItem(.adaptive(minimum:80)),
+           GridItem(.adaptive(minimum:80)),
+           GridItem(.adaptive(minimum:80))
        ]
     
     var body: some View {
         
-        
-        LazyVGrid(columns: columns, alignment: .center) {
+        VStack {
             
-            ForEach(selectedIngredients){ ingredient in
+            Rectangle()
+                .frame(height: 1)
+                .offset(y: -7)
+                .foregroundColor(.secondary)
+            HStack {
+                Text("Your selected Ingredients")
+                    .font(.title3)
+                    .padding(.leading, 25)
+                    .foregroundColor(.primary)
                 
-                IngredientCell(ingredient: ingredient)
-                    .onTapGesture {
-                        selectedIngredients.filter { $0.id != ingredient.id }
-                    }
+                Spacer()
+                
+                
+                Button {
+                    
+                } label: {
+                    Label("Create", systemImage: "")
+                        .labelStyle(.titleOnly)
+                        .foregroundColor(Color(UIColor.systemBackground))
+                        .padding(.horizontal)
+                        .font(.title3)
+                    
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(.green)
+                .padding(.trailing,25)
+                
+
+                    
             }
+            .padding(.top,2)
+            
+            ScrollView {
+                LazyVGrid(columns: [
+                    GridItem(.adaptive(minimum:80)),
+                    GridItem(.adaptive(minimum:80)),
+                    GridItem(.adaptive(minimum:80)),
+                    GridItem(.adaptive(minimum:80))
+                ], alignment: .center, spacing: 40) {
+                    
+                    ForEach(selectedIngredients){ ingredient in
+                        
+                        IngredientCell(ingredient: ingredient)
+                            .onTapGesture {
+                                $selectedIngredients.filter { $0.id != ingredient.id }
+                            }
+                            .frame(width:70, height: 70)
+                            
+                    }
+                }
+                .padding(10)
+                .padding(.bottom,20)
+                
+                
+                
+            }
+            
         }
-        .padding(10)
-        .padding(.vertical, 25)
-        .cornerRadius(20)
+        
+        
+        
        
     }
 }
