@@ -23,6 +23,7 @@
 		EE1B687D2974755700412267 /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1B687C2974755700412267 /* IngredientCell.swift */; };
 		EE1B687F2975FAAB00412267 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1B687E2975FAAB00412267 /* CategoryCell.swift */; };
 		EEF861362976C46C00452F43 /* IngredientSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF861352976C46C00452F43 /* IngredientSelectorView.swift */; };
+		EEF861392976CD3300452F43 /* SmartChef.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF861382976CD3300452F43 /* SmartChef.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		EE1B687C2974755700412267 /* IngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
 		EE1B687E2975FAAB00412267 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		EEF861352976C46C00452F43 /* IngredientSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientSelectorView.swift; sourceTree = "<group>"; };
+		EEF861382976CD3300452F43 /* SmartChef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartChef.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		EE1B684129743EDD00412267 /* cookify */ = {
 			isa = PBXGroup;
 			children = (
+				EEF861372976CCC700452F43 /* Backend */,
 				EE1B68772974741A00412267 /* Model */,
 				EE1B684229743EDD00412267 /* cookifyApp.swift */,
 				EE1B684429743EDD00412267 /* ContentView.swift */,
@@ -168,6 +171,14 @@
 				EE1B687A2974745200412267 /* Ingredient.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		EEF861372976CCC700452F43 /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				EEF861382976CD3300452F43 /* SmartChef.swift */,
+			);
+			path = Backend;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,6 +314,7 @@
 				EEF861362976C46C00452F43 /* IngredientSelectorView.swift in Sources */,
 				EE1B686D29743F0800412267 /* WelcomeScreen.swift in Sources */,
 				EE1B687629746E4A00412267 /* SelectedIngredientsBox.swift in Sources */,
+				EEF861392976CD3300452F43 /* SmartChef.swift in Sources */,
 				EE1B687D2974755700412267 /* IngredientCell.swift in Sources */,
 				EE1B686F2974453300412267 /* IngredientsSelectorScreen.swift in Sources */,
 				EE1B687229744DC600412267 /* IngredientsGrid.swift in Sources */,

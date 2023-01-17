@@ -15,3 +15,9 @@ struct cookifyApp: App {
         }
     }
 }
+
+struct Previews_cookifyApp_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
