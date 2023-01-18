@@ -24,6 +24,10 @@
 		EE1B687F2975FAAB00412267 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1B687E2975FAAB00412267 /* CategoryCell.swift */; };
 		EEF861362976C46C00452F43 /* IngredientSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF861352976C46C00452F43 /* IngredientSelectorView.swift */; };
 		EEF861392976CD3300452F43 /* SmartChef.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF861382976CD3300452F43 /* SmartChef.swift */; };
+		EEF8613D2976E3C800452F43 /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF8613C2976E3C800452F43 /* RecipeView.swift */; };
+		EEF8613F2976FB9200452F43 /* SmartRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF8613E2976FB9200452F43 /* SmartRecipe.swift */; };
+		EEF8614229770ADC00452F43 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF8614129770ADC00452F43 /* LoadingScreen.swift */; };
+		EEF86144297803C200452F43 /* ViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF86143297803C200452F43 /* ViewHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +68,10 @@
 		EE1B687E2975FAAB00412267 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		EEF861352976C46C00452F43 /* IngredientSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientSelectorView.swift; sourceTree = "<group>"; };
 		EEF861382976CD3300452F43 /* SmartChef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartChef.swift; sourceTree = "<group>"; };
+		EEF8613C2976E3C800452F43 /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
+		EEF8613E2976FB9200452F43 /* SmartRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartRecipe.swift; sourceTree = "<group>"; };
+		EEF8614129770ADC00452F43 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
+		EEF86143297803C200452F43 /* ViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				EE1B684129743EDD00412267 /* cookify */,
+				EE1B684629743EDE00412267 /* Assets.xcassets */,
 				EE1B685229743EDE00412267 /* cookifyTests */,
 				EE1B685C29743EDE00412267 /* cookifyUITests */,
 				EE1B684029743EDD00412267 /* Products */,
@@ -114,14 +123,16 @@
 		EE1B684129743EDD00412267 /* cookify */ = {
 			isa = PBXGroup;
 			children = (
-				EEF861372976CCC700452F43 /* Backend */,
-				EE1B68772974741A00412267 /* Model */,
 				EE1B684229743EDD00412267 /* cookifyApp.swift */,
 				EE1B684429743EDD00412267 /* ContentView.swift */,
-				EE1B684629743EDE00412267 /* Assets.xcassets */,
-				EE1B684829743EDE00412267 /* Preview Content */,
-				EE1B686C29743F0800412267 /* WelcomeScreen.swift */,
+				EEF86143297803C200452F43 /* ViewHandler.swift */,
+				EEF8614029770AC300452F43 /* LoadingScreen */,
 				EE1B687029744D9D00412267 /* IngredientsSelector */,
+				EEF861372976CCC700452F43 /* Backend */,
+				EE1B68772974741A00412267 /* Model */,
+				EEF8613C2976E3C800452F43 /* RecipeView.swift */,
+				EE1B686C29743F0800412267 /* WelcomeScreen.swift */,
+				EE1B684829743EDE00412267 /* Preview Content */,
 			);
 			path = cookify;
 			sourceTree = "<group>";
@@ -154,13 +165,13 @@
 		EE1B687029744D9D00412267 /* IngredientsSelector */ = {
 			isa = PBXGroup;
 			children = (
+				EEF861352976C46C00452F43 /* IngredientSelectorView.swift */,
 				EE1B686E2974453300412267 /* IngredientsSelectorScreen.swift */,
 				EE1B687129744DC600412267 /* IngredientsGrid.swift */,
 				EE1B6873297451A200412267 /* CategoryRow.swift */,
 				EE1B687529746E4A00412267 /* SelectedIngredientsBox.swift */,
 				EE1B687C2974755700412267 /* IngredientCell.swift */,
 				EE1B687E2975FAAB00412267 /* CategoryCell.swift */,
-				EEF861352976C46C00452F43 /* IngredientSelectorView.swift */,
 			);
 			path = IngredientsSelector;
 			sourceTree = "<group>";
@@ -169,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				EE1B687A2974745200412267 /* Ingredient.swift */,
+				EEF8613E2976FB9200452F43 /* SmartRecipe.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -179,6 +191,14 @@
 				EEF861382976CD3300452F43 /* SmartChef.swift */,
 			);
 			path = Backend;
+			sourceTree = "<group>";
+		};
+		EEF8614029770AC300452F43 /* LoadingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				EEF8614129770ADC00452F43 /* LoadingScreen.swift */,
+			);
+			path = LoadingScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,7 +336,11 @@
 				EE1B687629746E4A00412267 /* SelectedIngredientsBox.swift in Sources */,
 				EEF861392976CD3300452F43 /* SmartChef.swift in Sources */,
 				EE1B687D2974755700412267 /* IngredientCell.swift in Sources */,
+				EEF86144297803C200452F43 /* ViewHandler.swift in Sources */,
+				EEF8614229770ADC00452F43 /* LoadingScreen.swift in Sources */,
+				EEF8613F2976FB9200452F43 /* SmartRecipe.swift in Sources */,
 				EE1B686F2974453300412267 /* IngredientsSelectorScreen.swift in Sources */,
+				EEF8613D2976E3C800452F43 /* RecipeView.swift in Sources */,
 				EE1B687229744DC600412267 /* IngredientsGrid.swift in Sources */,
 				EE1B687B2974745200412267 /* Ingredient.swift in Sources */,
 				EE1B684529743EDD00412267 /* ContentView.swift in Sources */,

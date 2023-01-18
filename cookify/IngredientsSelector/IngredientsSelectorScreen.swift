@@ -11,6 +11,9 @@ struct IngredientsSelectorScreen: View {
     
     @State var selectedIngredients:[Ingredient] = []
     @State var selectedCategory:IngredientType = .fruit
+    @Binding var recipeState:RecipeState
+    @Binding var smartRecipe:SmartRecipe
+    
     var body: some View {
         
         VStack {
@@ -34,7 +37,11 @@ struct IngredientsSelectorScreen: View {
                         if !self.selectedIngredients.contains(where: { ingredient in
                             return ingredient.id == selectedIngredient.id
                         }){
-                            selectedIngredients.append(selectedIngredient)
+                            withAnimation(.easeIn(duration: 0.2)) {
+                                selectedIngredients.insert(selectedIngredient, at: 0)
+                            }
+                            
+                                
                         }
                         
                     }
@@ -46,8 +53,22 @@ struct IngredientsSelectorScreen: View {
             
            
             SelectedIngredientsBox(selectedIngredients: $selectedIngredients)
-                .ignoresSafeArea()
                 .frame(height: 260)
+            
+            Button {
+                smartRecipe.addIngredients(ingredients: selectedIngredients)
+                recipeState = .waitingForResponse
+            } label: {
+                Label("Create", systemImage: "")
+                    .labelStyle(.titleOnly)
+                    .foregroundColor(Color(UIColor.systemBackground))
+                    .padding(.vertical,3)
+                    .padding(.horizontal, 30)
+                    .font(.title3)
+                
+            }
+            .buttonStyle(.borderedProminent)
+            .tint(.green)
         
         }
     }
@@ -55,6 +76,6 @@ struct IngredientsSelectorScreen: View {
 
 struct IngredientsSelector_Previews: PreviewProvider {
     static var previews: some View {
-        IngredientsSelectorScreen()
+        IngredientsSelectorScreen(recipeState: .constant(.selectingIngredients), smartRecipe: .constant(SmartRecipe(ingredients: [])))
     }
 }

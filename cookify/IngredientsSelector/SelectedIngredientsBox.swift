@@ -11,6 +11,7 @@ struct SelectedIngredientsBox: View {
     
     @Binding var selectedIngredients:[Ingredient]
     
+    
     let columns = [
            GridItem(.adaptive(minimum:80)),
            GridItem(.adaptive(minimum:80)),
@@ -25,7 +26,8 @@ struct SelectedIngredientsBox: View {
             Rectangle()
                 .frame(height: 1)
                 .offset(y: -7)
-                .foregroundColor(.secondary)
+                .foregroundColor(.green)
+                .padding(.horizontal)
             HStack {
                 Text("Your selected Ingredients")
                     .font(.title3)
@@ -34,25 +36,8 @@ struct SelectedIngredientsBox: View {
                 
                 Spacer()
                 
-                
-                Button {
-                    
-                } label: {
-                    Label("Create", systemImage: "")
-                        .labelStyle(.titleOnly)
-                        .foregroundColor(Color(UIColor.systemBackground))
-                        .padding(.horizontal)
-                        .font(.title3)
-                    
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(.green)
-                .padding(.trailing,25)
-                
-
-                    
             }
-            .padding(.top,2)
+            
             
             ScrollView {
                 LazyVGrid(columns: [
@@ -69,6 +54,7 @@ struct SelectedIngredientsBox: View {
                                 $selectedIngredients.filter { $0.id != ingredient.id }
                             }
                             .frame(width:70, height: 70)
+                            
                             
                     }
                 }
