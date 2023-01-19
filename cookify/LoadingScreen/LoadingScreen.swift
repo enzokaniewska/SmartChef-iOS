@@ -39,6 +39,8 @@ struct LoadingScreen: View {
                 
             }
         }
+        //when loading screen appears, backend logic is used
+        //after the API returns a valid recipe, the state is changed
         .onAppear{
             smartRecipe.generateRecipe { recipe, error in
                  

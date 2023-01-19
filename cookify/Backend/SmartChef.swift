@@ -12,7 +12,10 @@ struct SmartChef{
     
     static func getRecipe(ingredients: [Ingredient], onCompletion: @escaping ([String:Any]?, Error?)->Void){
         
+    
         let ingredientNames = ingredients.map { $0.name }
+        
+        //URL of the SmartChef-API. In this case its localhost
         let url = URL(string: "http://127.0.0.1:5000/recipe")!
         let json : [String:Any] =
         [
@@ -23,6 +26,7 @@ struct SmartChef{
             ]
         ]
 
+        
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
 
         // create post request
@@ -33,6 +37,7 @@ struct SmartChef{
         // insert json data to the request
         request.httpBody = jsonData
 
+        //create URL session and define escaping closure
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
                 print(error?.localizedDescription ?? "No data")

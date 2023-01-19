@@ -9,14 +9,21 @@ import SwiftUI
 
 struct ViewHandler: View {
     
+    //This view handles the states of creating the recipe
+    //and shows the right view depending on which state the user is at
+    
     @State var recipeState:RecipeState
     @State var smartRecipe = SmartRecipe()
     var body: some View {
+        
         switch(recipeState){
+            
         case .selectingIngredients:
             IngredientsSelectorScreen(recipeState: $recipeState, smartRecipe: $smartRecipe)
+            
         case .waitingForResponse:
             LoadingScreen(smartRecipe: $smartRecipe, recipeState: $recipeState)
+            
         case .presentingRecipe:
             RecipeView(recipe: smartRecipe)
             
