@@ -33,27 +33,34 @@ struct IngredientsSelectorScreen: View {
                     }
                     
                     IngredientSelectorView { selectedIngredient in
-                       
+                        //check if ingredient is already selected
                         if !self.selectedIngredients.contains(where: { ingredient in
                             return ingredient.id == selectedIngredient.id
                         }){
+                            //if not, add it with animation
                             withAnimation(.easeIn(duration: 0.2)) {
                                 selectedIngredients.insert(selectedIngredient, at: 0)
                             }
                             
-                                
+                            
                         }
                         
                     }
                     .padding(.bottom,30)
-                    
-                    
                 }
             }
             
-           
-            SelectedIngredientsBox(selectedIngredients: $selectedIngredients)
-                .frame(height: 260)
+            
+            SelectedIngredientsBox(selectedIngredients: selectedIngredients){ removedIngredient in
+                
+                let index = selectedIngredients.firstIndex { ingredient in
+                    return removedIngredient.id == ingredient.id
+                }
+                withAnimation(.easeIn(duration: 0.2)){
+                    selectedIngredients.remove(at: index!)
+                }
+            }
+            .frame(height: 260)
             
             Button {
                 smartRecipe.addIngredients(ingredients: selectedIngredients)
@@ -69,7 +76,7 @@ struct IngredientsSelectorScreen: View {
             }
             .buttonStyle(.borderedProminent)
             .tint(.green)
-        
+            
         }
     }
 }

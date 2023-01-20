@@ -36,7 +36,14 @@ struct Ingredient: Identifiable{
         Ingredient(id: UUID().uuidString, name: "Sausage", image: Image("meat4"), category: .meat),
         //diary
         Ingredient(id: UUID().uuidString, name: "Cheese", image: Image("diary0"), category: .Dairy),
-        Ingredient(id: UUID().uuidString, name: "Eggs", image: Image("diary1"), category: .Dairy)
+        Ingredient(id: UUID().uuidString, name: "Eggs", image: Image("diary1"), category: .Dairy),
+        
+        //carbs
+        Ingredient(id: UUID().uuidString, name: "Pasta", image: Image("penne"), category: .Carbs),
+        Ingredient(id: UUID().uuidString, name: "Sweet Potato", image: Image("sweetpotato"), category: .Carbs),
+        Ingredient(id: UUID().uuidString, name: "Potato", image: Image("potato"), category: .Carbs),
+        Ingredient(id: UUID().uuidString, name: "Rice", image: Image("rice"), category: .Carbs)
+        
     ]
     static func getTestList()->[Ingredient]{
         
