@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SelectedIngredientsBox: View {
     
-    @State var selectedIngredients:[Ingredient]
+    @Binding var selectedIngredients:[Ingredient]
     
     var didRemoveItem : (Ingredient) -> Void
     
@@ -33,15 +33,10 @@ struct SelectedIngredientsBox: View {
                     .font(.title3)
                     .padding(.leading, 25)
                     .foregroundColor(.primary)
-                Spacer(
+                Spacer()
             }
             ScrollView {
-                LazyVGrid(columns: [
-                    GridItem(.adaptive(minimum:80)),
-                    GridItem(.adaptive(minimum:80)),
-                    GridItem(.adaptive(minimum:80)),
-                    GridItem(.adaptive(minimum:80))
-                ], alignment: .center, spacing: 40) {
+                LazyVGrid(columns: columns, alignment: .center, spacing: 40) {
                     
                     ForEach(selectedIngredients){ ingredient in
                         
@@ -74,7 +69,7 @@ struct SelectedIngredientsBox: View {
 
 struct SelectedIngredientsBox_Previews: PreviewProvider {
     static var previews: some View {
-        SelectedIngredientsBox(selectedIngredients: .constant(Ingredient.getTestList())){ingredient in
+        SelectedIngredientsBox(selectedIngredients: .constant(Ingredient.getTestList())){ ingredient in
             
         }
     }

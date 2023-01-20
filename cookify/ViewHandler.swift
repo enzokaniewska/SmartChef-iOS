@@ -20,12 +20,18 @@ struct ViewHandler: View {
             
         case .selectingIngredients:
             IngredientsSelectorScreen(recipeState: $recipeState, smartRecipe: $smartRecipe)
+                .transition(.slide)
             
         case .waitingForResponse:
             LoadingScreen(smartRecipe: $smartRecipe, recipeState: $recipeState)
+                .transition(.slide)
             
         case .presentingRecipe:
-            RecipeView(recipe: smartRecipe)
+            RecipeView(recipe: smartRecipe){
+                smartRecipe = SmartRecipe()
+                recipeState = .selectingIngredients
+            }
+            .transition(.slide)
             
         }
     }

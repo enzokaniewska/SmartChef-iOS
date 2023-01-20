@@ -10,6 +10,8 @@ import SwiftUI
 struct RecipeView: View {
     
     @State var recipe: SmartRecipe
+    
+    var didSelectNewRecipe : ()->Void
     var body: some View {
         
         ScrollView {
@@ -60,6 +62,13 @@ struct RecipeView: View {
                 
             }
             .padding(.horizontal)
+            
+            Button("Create new recipe") {
+                didSelectNewRecipe()
+            }
+        
+            .tint(.green)
+            .buttonStyle(.borderedProminent)
         }
         
         
@@ -72,7 +81,9 @@ struct RecipeView_Previews: PreviewProvider {
     static var previews: some View {
         
         
-        RecipeView(recipe: SmartRecipe.testRecipe)
+        RecipeView(recipe: SmartRecipe.testRecipe) {
+            
+        }
             
     }
 }

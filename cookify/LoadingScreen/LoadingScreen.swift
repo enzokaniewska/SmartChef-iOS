@@ -45,7 +45,11 @@ struct LoadingScreen: View {
             smartRecipe.generateRecipe { recipe, error in
                  
                 if let recipe = recipe, error == nil{
-                    recipeState = .presentingRecipe
+                    
+                    withAnimation(.easeIn(duration: 0.2)){
+                        recipeState = .presentingRecipe
+                    }
+                    
                 }
                 
             }

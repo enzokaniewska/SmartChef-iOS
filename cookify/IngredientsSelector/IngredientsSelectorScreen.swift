@@ -51,7 +51,7 @@ struct IngredientsSelectorScreen: View {
             }
             
             
-            SelectedIngredientsBox(selectedIngredients: selectedIngredients){ removedIngredient in
+            SelectedIngredientsBox(selectedIngredients: $selectedIngredients){ removedIngredient in
                 
                 let index = selectedIngredients.firstIndex { ingredient in
                     return removedIngredient.id == ingredient.id
@@ -64,7 +64,9 @@ struct IngredientsSelectorScreen: View {
             
             Button {
                 smartRecipe.addIngredients(ingredients: selectedIngredients)
-                recipeState = .waitingForResponse
+                withAnimation(.easeIn(duration: 0.2)){
+                    recipeState = .waitingForResponse
+                }
             } label: {
                 Label("Create", systemImage: "")
                     .labelStyle(.titleOnly)
