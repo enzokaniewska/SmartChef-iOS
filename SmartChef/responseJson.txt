@@ -1,0 +1,64 @@
+{
+    "title": "Tuna Rice Pilaf",
+    "servingAmount": 4,
+    "ingridients": [
+        {
+            "name": "Rice",
+            "amount": "2 cups",
+            "kcal": 686
+        },
+        {
+            "name": "Onion",
+            "amount": "1 medium",
+            "kcal": 44
+        },
+        {
+            "name": "Tuna",
+            "amount": "1 can (7 oz)",
+            "kcal": 179
+        },
+        {
+            "name": "Basic Spices",
+            "amount": "to taste",
+            "kcal": 0
+        }
+    ],
+    "tools": [
+        "Oven",
+        "Stove",
+        "Frying Pan"
+    ],
+    "steps": [
+        {
+            "number": 1,
+            "description": "Preheat oven to 350°F (177°C)."
+        },
+        {
+            "number": 2,
+            "description": "In a large frying pan, heat 2 tablespoons of oil over medium heat. Add the onions and sauté for 5 minutes until softened."
+        },
+        {
+            "number": 3,
+            "description": "Add the rice and cook for 2 minutes, stirring occasionally."
+        },
+        {
+            "number": 4,
+            "description": "Stir in the tuna and spices and cook for 1 minute."
+        },
+        {
+            "number": 5,
+            "description": "Transfer the mixture to a greased baking dish and bake for 25 minutes."
+        },
+        {
+            "number": 6,
+            "description": "Serve the Tuna Rice Pilaf hot."
+        }
+    ],
+    "optionalSteps": [
+        {
+            "number": 1,
+            "description": "For extra flavor, add a tablespoon of chopped fresh herbs to the rice before baking."
+        }
+    ]
+}
+

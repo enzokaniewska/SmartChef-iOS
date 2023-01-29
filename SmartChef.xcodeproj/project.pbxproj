@@ -1,0 +1,730 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EE1B684329743EDD00412267 /* cookifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1B684229743EDD00412267 /* cookifyApp.swift */; };
+		EE1B684529743EDD00412267 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1B684429743EDD00412267 /* ContentView.swift */; };
+		EE1B684729743EDE00412267 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE1B684629743EDE00412267 /* Assets.xcassets */; };
+		EE1B684A29743EDE00412267 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE1B684929743EDE00412267 /* Preview Assets.xcassets */; };
+		EE1B685429743EDE00412267 /* cookifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1B685329743EDE00412267 /* cookifyTests.swift */; };
+		EE1B685E29743EDE00412267 /* cookifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1B685D29743EDE00412267 /* cookifyUITests.swift */; };
+		EE1B686029743EDE00412267 /* cookifyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1B685F29743EDE00412267 /* cookifyUITestsLaunchTests.swift */; };
+		EE1B686D29743F0800412267 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1B686C29743F0800412267 /* WelcomeScreen.swift */; };
+		EE1B686F2974453300412267 /* IngredientsSelectorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1B686E2974453300412267 /* IngredientsSelectorScreen.swift */; };
+		EE1B687229744DC600412267 /* IngredientsGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1B687129744DC600412267 /* IngredientsGrid.swift */; };
+		EE1B6874297451A200412267 /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1B6873297451A200412267 /* CategoryRow.swift */; };
+		EE1B687629746E4A00412267 /* SelectedIngredientsBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1B687529746E4A00412267 /* SelectedIngredientsBox.swift */; };
+		EE1B687B2974745200412267 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1B687A2974745200412267 /* Ingredient.swift */; };
+		EE1B687D2974755700412267 /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1B687C2974755700412267 /* IngredientCell.swift */; };
+		EE1B687F2975FAAB00412267 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1B687E2975FAAB00412267 /* CategoryCell.swift */; };
+		EE260A0B2981BBD300EE9E60 /* LoadingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE260A0A2981BBD300EE9E60 /* LoadingAnimationView.swift */; };
+		EE260A0D2981BD8C00EE9E60 /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE260A0C2981BD8C00EE9E60 /* DotView.swift */; };
+		EE260A0F29856E8B00EE9E60 /* RecipeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE260A0E29856E8B00EE9E60 /* RecipeResponse.swift */; };
+		EE260A11298574F500EE9E60 /* responseJson.txt in Resources */ = {isa = PBXBuildFile; fileRef = EE260A10298574F500EE9E60 /* responseJson.txt */; };
+		EE260A13298671EC00EE9E60 /* SmartRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE260A12298671EC00EE9E60 /* SmartRecipe.swift */; };
+		EEF861362976C46C00452F43 /* IngredientSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF861352976C46C00452F43 /* IngredientSelectorView.swift */; };
+		EEF861392976CD3300452F43 /* SmartChef.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF861382976CD3300452F43 /* SmartChef.swift */; };
+		EEF8613D2976E3C800452F43 /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF8613C2976E3C800452F43 /* RecipeView.swift */; };
+		EEF8613F2976FB9200452F43 /* RecipeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF8613E2976FB9200452F43 /* RecipeRequest.swift */; };
+		EEF8614229770ADC00452F43 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF8614129770ADC00452F43 /* LoadingScreen.swift */; };
+		EEF86144297803C200452F43 /* ViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF86143297803C200452F43 /* ViewHandler.swift */; };
+		EEF8614629782BC500452F43 /* RecipeDataObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF8614529782BC500452F43 /* RecipeDataObjects.swift */; };
+		EEF86148297C309100452F43 /* RecipeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF86147297C309100452F43 /* RecipeListView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EE1B685029743EDE00412267 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE1B683729743EDD00412267 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE1B683E29743EDD00412267;
+			remoteInfo = cookify;
+		};
+		EE1B685A29743EDE00412267 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE1B683729743EDD00412267 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE1B683E29743EDD00412267;
+			remoteInfo = cookify;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EE1B683F29743EDD00412267 /* SmartChef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartChef.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE1B684229743EDD00412267 /* cookifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cookifyApp.swift; sourceTree = "<group>"; };
+		EE1B684429743EDD00412267 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EE1B684629743EDE00412267 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EE1B684929743EDE00412267 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EE1B684F29743EDE00412267 /* SmartChefTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartChefTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE1B685329743EDE00412267 /* cookifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cookifyTests.swift; sourceTree = "<group>"; };
+		EE1B685929743EDE00412267 /* SmartChefUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartChefUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE1B685D29743EDE00412267 /* cookifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cookifyUITests.swift; sourceTree = "<group>"; };
+		EE1B685F29743EDE00412267 /* cookifyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cookifyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EE1B686C29743F0800412267 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
+		EE1B686E2974453300412267 /* IngredientsSelectorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsSelectorScreen.swift; sourceTree = "<group>"; };
+		EE1B687129744DC600412267 /* IngredientsGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsGrid.swift; sourceTree = "<group>"; };
+		EE1B6873297451A200412267 /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
+		EE1B687529746E4A00412267 /* SelectedIngredientsBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedIngredientsBox.swift; sourceTree = "<group>"; };
+		EE1B687A2974745200412267 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		EE1B687C2974755700412267 /* IngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
+		EE1B687E2975FAAB00412267 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		EE260A0A2981BBD300EE9E60 /* LoadingAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingAnimationView.swift; sourceTree = "<group>"; };
+		EE260A0C2981BD8C00EE9E60 /* DotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
+		EE260A0E29856E8B00EE9E60 /* RecipeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeResponse.swift; sourceTree = "<group>"; };
+		EE260A10298574F500EE9E60 /* responseJson.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = responseJson.txt; sourceTree = "<group>"; };
+		EE260A12298671EC00EE9E60 /* SmartRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartRecipe.swift; sourceTree = "<group>"; };
+		EEF861352976C46C00452F43 /* IngredientSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientSelectorView.swift; sourceTree = "<group>"; };
+		EEF861382976CD3300452F43 /* SmartChef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartChef.swift; sourceTree = "<group>"; };
+		EEF8613C2976E3C800452F43 /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
+		EEF8613E2976FB9200452F43 /* RecipeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRequest.swift; sourceTree = "<group>"; };
+		EEF8614129770ADC00452F43 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
+		EEF86143297803C200452F43 /* ViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHandler.swift; sourceTree = "<group>"; };
+		EEF8614529782BC500452F43 /* RecipeDataObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDataObjects.swift; sourceTree = "<group>"; };
+		EEF86147297C309100452F43 /* RecipeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EE1B683C29743EDD00412267 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE1B684C29743EDE00412267 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE1B685629743EDE00412267 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EE1B683629743EDD00412267 = {
+			isa = PBXGroup;
+			children = (
+				EE1B684129743EDD00412267 /* SmartChef */,
+				EE1B684629743EDE00412267 /* Assets.xcassets */,
+				EE1B685229743EDE00412267 /* cookifyTests */,
+				EE1B685C29743EDE00412267 /* cookifyUITests */,
+				EE1B684029743EDD00412267 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EE1B684029743EDD00412267 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE1B683F29743EDD00412267 /* SmartChef.app */,
+				EE1B684F29743EDE00412267 /* SmartChefTests.xctest */,
+				EE1B685929743EDE00412267 /* SmartChefUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EE1B684129743EDD00412267 /* SmartChef */ = {
+			isa = PBXGroup;
+			children = (
+				EE1B684229743EDD00412267 /* cookifyApp.swift */,
+				EE1B684429743EDD00412267 /* ContentView.swift */,
+				EEF86143297803C200452F43 /* ViewHandler.swift */,
+				EE1B687029744D9D00412267 /* IngredientsSelector */,
+				EEF8614029770AC300452F43 /* LoadingScreen */,
+				EE260A152986786B00EE9E60 /* Recipe Presentation */,
+				EEF861372976CCC700452F43 /* Backend */,
+				EE1B68772974741A00412267 /* Model */,
+				EEF86147297C309100452F43 /* RecipeListView.swift */,
+				EE1B686C29743F0800412267 /* WelcomeScreen.swift */,
+				EE1B684829743EDE00412267 /* Preview Content */,
+				EE260A10298574F500EE9E60 /* responseJson.txt */,
+			);
+			path = SmartChef;
+			sourceTree = "<group>";
+		};
+		EE1B684829743EDE00412267 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				EE1B684929743EDE00412267 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EE1B685229743EDE00412267 /* cookifyTests */ = {
+			isa = PBXGroup;
+			children = (
+				EE1B685329743EDE00412267 /* cookifyTests.swift */,
+			);
+			path = cookifyTests;
+			sourceTree = "<group>";
+		};
+		EE1B685C29743EDE00412267 /* cookifyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EE1B685D29743EDE00412267 /* cookifyUITests.swift */,
+				EE1B685F29743EDE00412267 /* cookifyUITestsLaunchTests.swift */,
+			);
+			path = cookifyUITests;
+			sourceTree = "<group>";
+		};
+		EE1B687029744D9D00412267 /* IngredientsSelector */ = {
+			isa = PBXGroup;
+			children = (
+				EE1B686E2974453300412267 /* IngredientsSelectorScreen.swift */,
+				EEF861352976C46C00452F43 /* IngredientSelectorView.swift */,
+				EE1B687529746E4A00412267 /* SelectedIngredientsBox.swift */,
+				EE260A142986780F00EE9E60 /* Components */,
+			);
+			path = IngredientsSelector;
+			sourceTree = "<group>";
+		};
+		EE1B68772974741A00412267 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EE1B687A2974745200412267 /* Ingredient.swift */,
+				EE260A12298671EC00EE9E60 /* SmartRecipe.swift */,
+				EEF8613E2976FB9200452F43 /* RecipeRequest.swift */,
+				EE260A0E29856E8B00EE9E60 /* RecipeResponse.swift */,
+				EEF8614529782BC500452F43 /* RecipeDataObjects.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EE260A142986780F00EE9E60 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				EE1B687129744DC600412267 /* IngredientsGrid.swift */,
+				EE1B6873297451A200412267 /* CategoryRow.swift */,
+				EE1B687C2974755700412267 /* IngredientCell.swift */,
+				EE1B687E2975FAAB00412267 /* CategoryCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		EE260A152986786B00EE9E60 /* Recipe Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				EEF8613C2976E3C800452F43 /* RecipeView.swift */,
+			);
+			path = "Recipe Presentation";
+			sourceTree = "<group>";
+		};
+		EE260A16298678B000EE9E60 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				EE260A0A2981BBD300EE9E60 /* LoadingAnimationView.swift */,
+				EE260A0C2981BD8C00EE9E60 /* DotView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		EEF861372976CCC700452F43 /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				EEF861382976CD3300452F43 /* SmartChef.swift */,
+			);
+			path = Backend;
+			sourceTree = "<group>";
+		};
+		EEF8614029770AC300452F43 /* LoadingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				EEF8614129770ADC00452F43 /* LoadingScreen.swift */,
+				EE260A16298678B000EE9E60 /* Components */,
+			);
+			path = LoadingScreen;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EE1B683E29743EDD00412267 /* SmartChef */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE1B686329743EDE00412267 /* Build configuration list for PBXNativeTarget "SmartChef" */;
+			buildPhases = (
+				EE1B683B29743EDD00412267 /* Sources */,
+				EE1B683C29743EDD00412267 /* Frameworks */,
+				EE1B683D29743EDD00412267 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmartChef;
+			productName = cookify;
+			productReference = EE1B683F29743EDD00412267 /* SmartChef.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EE1B684E29743EDE00412267 /* SmartChefTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE1B686629743EDE00412267 /* Build configuration list for PBXNativeTarget "SmartChefTests" */;
+			buildPhases = (
+				EE1B684B29743EDE00412267 /* Sources */,
+				EE1B684C29743EDE00412267 /* Frameworks */,
+				EE1B684D29743EDE00412267 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE1B685129743EDE00412267 /* PBXTargetDependency */,
+			);
+			name = SmartChefTests;
+			productName = cookifyTests;
+			productReference = EE1B684F29743EDE00412267 /* SmartChefTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EE1B685829743EDE00412267 /* SmartChefUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE1B686929743EDE00412267 /* Build configuration list for PBXNativeTarget "SmartChefUITests" */;
+			buildPhases = (
+				EE1B685529743EDE00412267 /* Sources */,
+				EE1B685629743EDE00412267 /* Frameworks */,
+				EE1B685729743EDE00412267 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE1B685B29743EDE00412267 /* PBXTargetDependency */,
+			);
+			name = SmartChefUITests;
+			productName = cookifyUITests;
+			productReference = EE1B685929743EDE00412267 /* SmartChefUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EE1B683729743EDD00412267 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					EE1B683E29743EDD00412267 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					EE1B684E29743EDE00412267 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = EE1B683E29743EDD00412267;
+					};
+					EE1B685829743EDE00412267 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = EE1B683E29743EDD00412267;
+					};
+				};
+			};
+			buildConfigurationList = EE1B683A29743EDD00412267 /* Build configuration list for PBXProject "SmartChef" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EE1B683629743EDD00412267;
+			productRefGroup = EE1B684029743EDD00412267 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EE1B683E29743EDD00412267 /* SmartChef */,
+				EE1B684E29743EDE00412267 /* SmartChefTests */,
+				EE1B685829743EDE00412267 /* SmartChefUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EE1B683D29743EDD00412267 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE1B684A29743EDE00412267 /* Preview Assets.xcassets in Resources */,
+				EE260A11298574F500EE9E60 /* responseJson.txt in Resources */,
+				EE1B684729743EDE00412267 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE1B684D29743EDE00412267 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE1B685729743EDE00412267 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EE1B683B29743EDD00412267 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEF861362976C46C00452F43 /* IngredientSelectorView.swift in Sources */,
+				EE1B686D29743F0800412267 /* WelcomeScreen.swift in Sources */,
+				EEF8614629782BC500452F43 /* RecipeDataObjects.swift in Sources */,
+				EE1B687629746E4A00412267 /* SelectedIngredientsBox.swift in Sources */,
+				EEF861392976CD3300452F43 /* SmartChef.swift in Sources */,
+				EE260A0B2981BBD300EE9E60 /* LoadingAnimationView.swift in Sources */,
+				EE1B687D2974755700412267 /* IngredientCell.swift in Sources */,
+				EEF86148297C309100452F43 /* RecipeListView.swift in Sources */,
+				EEF86144297803C200452F43 /* ViewHandler.swift in Sources */,
+				EE260A13298671EC00EE9E60 /* SmartRecipe.swift in Sources */,
+				EEF8614229770ADC00452F43 /* LoadingScreen.swift in Sources */,
+				EEF8613F2976FB9200452F43 /* RecipeRequest.swift in Sources */,
+				EE1B686F2974453300412267 /* IngredientsSelectorScreen.swift in Sources */,
+				EEF8613D2976E3C800452F43 /* RecipeView.swift in Sources */,
+				EE1B687229744DC600412267 /* IngredientsGrid.swift in Sources */,
+				EE260A0D2981BD8C00EE9E60 /* DotView.swift in Sources */,
+				EE1B687B2974745200412267 /* Ingredient.swift in Sources */,
+				EE1B684529743EDD00412267 /* ContentView.swift in Sources */,
+				EE260A0F29856E8B00EE9E60 /* RecipeResponse.swift in Sources */,
+				EE1B6874297451A200412267 /* CategoryRow.swift in Sources */,
+				EE1B684329743EDD00412267 /* cookifyApp.swift in Sources */,
+				EE1B687F2975FAAB00412267 /* CategoryCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE1B684B29743EDE00412267 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE1B685429743EDE00412267 /* cookifyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE1B685529743EDE00412267 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE1B685E29743EDE00412267 /* cookifyUITests.swift in Sources */,
+				EE1B686029743EDE00412267 /* cookifyUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EE1B685129743EDE00412267 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE1B683E29743EDD00412267 /* SmartChef */;
+			targetProxy = EE1B685029743EDE00412267 /* PBXContainerItemProxy */;
+		};
+		EE1B685B29743EDE00412267 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE1B683E29743EDD00412267 /* SmartChef */;
+			targetProxy = EE1B685A29743EDE00412267 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		EE1B686129743EDE00412267 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EE1B686229743EDE00412267 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EE1B686429743EDE00412267 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SmartChef/Preview Content\"";
+				DEVELOPMENT_TEAM = 5FTZ3V88NZ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SmartChef;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = enzokaniewska.cookify;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EE1B686529743EDE00412267 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SmartChef/Preview Content\"";
+				DEVELOPMENT_TEAM = 5FTZ3V88NZ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SmartChef;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = enzokaniewska.cookify;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EE1B686729743EDE00412267 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5FTZ3V88NZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = enzokaniewska.cookifyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartChef.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SmartChef";
+			};
+			name = Debug;
+		};
+		EE1B686829743EDE00412267 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5FTZ3V88NZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = enzokaniewska.cookifyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartChef.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SmartChef";
+			};
+			name = Release;
+		};
+		EE1B686A29743EDE00412267 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5FTZ3V88NZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = enzokaniewska.cookifyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = cookify;
+			};
+			name = Debug;
+		};
+		EE1B686B29743EDE00412267 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5FTZ3V88NZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = enzokaniewska.cookifyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = cookify;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EE1B683A29743EDD00412267 /* Build configuration list for PBXProject "SmartChef" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE1B686129743EDE00412267 /* Debug */,
+				EE1B686229743EDE00412267 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE1B686329743EDE00412267 /* Build configuration list for PBXNativeTarget "SmartChef" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE1B686429743EDE00412267 /* Debug */,
+				EE1B686529743EDE00412267 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE1B686629743EDE00412267 /* Build configuration list for PBXNativeTarget "SmartChefTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE1B686729743EDE00412267 /* Debug */,
+				EE1B686829743EDE00412267 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE1B686929743EDE00412267 /* Build configuration list for PBXNativeTarget "SmartChefUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE1B686A29743EDE00412267 /* Debug */,
+				EE1B686B29743EDE00412267 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EE1B683729743EDD00412267 /* Project object */;
+}
