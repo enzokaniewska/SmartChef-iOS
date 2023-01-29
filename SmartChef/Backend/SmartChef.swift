@@ -16,7 +16,7 @@ struct SmartChef{
         let ingredientNames = ingredients.map { $0.name }
         
         //URL of the SmartChef-API. In this case its localhost
-        let url = URL(string: "http://194.233.172.64:5000/recipe")!
+        let url = URL(string: "http://194.233.172.64/recipe")!
         let json : [String:Any] =
         [
             "ingredients": ingredientNames,
