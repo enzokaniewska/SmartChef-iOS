@@ -70,6 +70,22 @@ struct RecipeView: View {
                 .padding(.horizontal)
                 
                 
+                Text("Optional Steps")
+                    .font(.title2)
+                    .bold()
+                    .padding()
+                
+                ForEach(smartRecipe.response!.optionalSteps){ optionalStep in
+                    
+                    Text("Step \(optionalStep.number)")
+                        .font(.title3)
+                        .bold()
+                    
+                    Text(optionalStep.description)
+                        .padding(.bottom)
+                }
+                .padding(.horizontal)
+                
                 
                 HStack {
                     Spacer()

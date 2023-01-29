@@ -19,7 +19,7 @@ struct RecipeResponse{
     init?(json:[String:Any]){
         guard let title = json["title"] as? String,
               let servingAmount = json["servingAmount"] as? Int,
-              let ingredientsJson = json["ingridients"] as? [[String:Any]],
+              let ingredientsJson = json["ingredients"] as? [[String:Any]],
               let stepsJson = json["steps"] as? [[String:Any]],
               let tools = json["tools"] as? [String],
               let optionalStepsJson = json["optionalSteps"] as? [[String:Any]]
@@ -71,7 +71,7 @@ extension RecipeResponse{
     
     static func getTestResponse()->RecipeResponse?{
         
-        let path = Bundle.main.url(forResource: "responseJsoj", withExtension: "txt")!
+        let path = Bundle.main.url(forResource: "responseJson", withExtension: "txt")!
         let data = try? Data(contentsOf: path)
         
         if let data = data{
