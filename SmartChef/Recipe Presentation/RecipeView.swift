@@ -69,22 +69,25 @@ struct RecipeView: View {
                 }
                 .padding(.horizontal)
                 
-                
-                Text("Optional Steps")
-                    .font(.title2)
-                    .bold()
-                    .padding()
-                
-                ForEach(smartRecipe.response!.optionalSteps){ optionalStep in
+                if(!smartRecipe.response!.optionalSteps.isEmpty){
                     
-                    Text("Step \(optionalStep.number)")
-                        .font(.title3)
+                    Text("Optional Steps")
+                        .font(.title2)
                         .bold()
+                        .padding()
                     
-                    Text(optionalStep.description)
-                        .padding(.bottom)
+                    ForEach(smartRecipe.response!.optionalSteps){ optionalStep in
+                        
+                        Text("Step \(optionalStep.number)")
+                            .font(.title3)
+                            .bold()
+                        
+                        Text(optionalStep.description)
+                            .padding(.bottom)
+                    }
+                    .padding(.horizontal)
                 }
-                .padding(.horizontal)
+                
                 
                 
                 HStack {
