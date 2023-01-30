@@ -46,7 +46,7 @@ struct IngredientsSelectorScreen: View {
                         }
                         
                     }
-                    .padding(.bottom,30)
+                    .padding(.bottom,50)
                 }
             }
             

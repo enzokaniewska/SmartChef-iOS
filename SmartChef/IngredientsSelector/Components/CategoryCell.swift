@@ -26,6 +26,7 @@ struct CategoryCell: View {
             
             Text(category.rawValue)
                 .padding(.bottom)
+                .lineLimit(0)
         }
     }
 }

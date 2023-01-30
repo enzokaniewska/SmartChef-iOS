@@ -38,7 +38,13 @@ struct LoadingScreen: View {
                 Spacer()
                     
                 LoadingAnimationView()
-                    
+                   
+                Button("Cancel"){
+                    self.recipeState = .selectingIngredients
+                }
+                .buttonStyle(.bordered)
+                .padding(.top,50)
+                .tint(.white)
                     
                 Spacer()
                 Image("smartchef_logo")
