@@ -20,7 +20,7 @@ struct LoadingScreen: View {
             
             Rectangle()
                 .foregroundColor(.green)
-                .ignoresSafeArea()
+                .ignoresSafeArea(edges: [.top])
             VStack{
                 
                 Spacer()

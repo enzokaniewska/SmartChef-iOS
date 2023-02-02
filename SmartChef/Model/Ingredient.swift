@@ -45,11 +45,12 @@ extension Ingredient{
         Ingredient(id: UUID().uuidString, name: "Tomato", image: Image("tomato"), category: .vegetable),
         //Meat
         Ingredient(id: UUID().uuidString, name: "Beef", image: Image("meat0"), category: .meat),
+        Ingredient(id: UUID().uuidString, name: "Chicken Breast", image: Image("chicken-breast"), category: .meat),
         Ingredient(id: UUID().uuidString, name: "Salmon", image: Image("meat1"), category: .meat),
         Ingredient(id: UUID().uuidString, name: "Bacon", image: Image("meat2"), category: .meat),
         Ingredient(id: UUID().uuidString, name: "Sausage", image: Image("meat4"), category: .meat),
         Ingredient(id: UUID().uuidString, name: "Ground Beef", image: Image("minced-meat"), category: .meat),
-        Ingredient(id: UUID().uuidString, name: "Chicken Breast", image: Image("chicken-breast"), category: .meat),
+        
         //diary
         Ingredient(id: UUID().uuidString, name: "Cheese", image: Image("diary0"), category: .Diary),
         Ingredient(id: UUID().uuidString, name: "Eggs", image: Image("diary1"), category: .Diary),

@@ -10,7 +10,22 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         
-        ViewHandler(recipeState: RecipeState.selectingIngredients)
+        TabView{
+            
+            ViewHandler(recipeState: RecipeState.selectingIngredients)
+                .tabItem{
+                    Label("Creator", systemImage: "checklist")
+                        .symbolRenderingMode(.hierarchical)
+                }
+            RecipeListView()
+                .tabItem{
+                    Label("Saved Recipes", systemImage: "bookmark.circle.fill")
+                        .symbolRenderingMode(.hierarchical)
+                }
+            
+        }
+        .tint(.green)
+        
         
     }
 }

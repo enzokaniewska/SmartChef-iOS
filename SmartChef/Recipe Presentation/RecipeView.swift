@@ -11,7 +11,7 @@ struct RecipeView: View {
     
     @State var smartRecipe: SmartRecipe
     @State var isBookmarked:Bool = false
-    
+    @State var showDiscardButton:Bool = true
     var didSelectNewRecipe : ()->Void
     var body: some View {
         
@@ -33,10 +33,19 @@ struct RecipeView: View {
                         .font(.title)
                         .onTapGesture {
                             isBookmarked.toggle()
+                            
+                            if isBookmarked{
+                                RecipeStorage.saveRecipe(response:smartRecipe.response!)
+                            }
                         }
                         .foregroundColor(.green)
                     
+                    
                 }
+                Text("Serving amount: \(smartRecipe.response!.servingAmount)")
+                    .font(.title2)
+                    .bold()
+                    .padding()
             
                 
                 Text("Ingredients:")
@@ -89,17 +98,19 @@ struct RecipeView: View {
                 }
                 
                 
-                
-                HStack {
-                    Spacer()
-                    Button("Discard Recipe") {
-                        didSelectNewRecipe()
+                if showDiscardButton{
+                    HStack {
+                        Spacer()
+                        Button("Discard Recipe") {
+                            didSelectNewRecipe()
+                        }
+                            .tint(.red)
+                            .font(.title2)
+                            .buttonStyle(.bordered)
+                        Spacer()
                     }
-                        .tint(.red)
-                        .font(.title2)
-                        .buttonStyle(.bordered)
-                    Spacer()
                 }
+                
 
             
             

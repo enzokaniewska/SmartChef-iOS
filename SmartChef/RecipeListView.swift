@@ -9,23 +9,33 @@ import SwiftUI
 
 struct RecipeListView: View {
     
-    let recipeNames = ["Feta Chicken Pasta","Cheesy Beef Bowl", "Toasted Tuna Rolls", "Salmon Bowl with Couscous" ]
+    @State var savedRecipes = RecipeStorage.loadSavedRecipes()
+    
+   
     var body: some View {
         NavigationView{
            
             List{
                 
-                Text("Feta Chicken Pasta")
-                
-                Text("Cheesy Beef Bowl")
-                
-                Text("Toasted Tuna Rolls")
-                
-                Text("Salmon Bowl with Couscous")
+                ForEach(savedRecipes){ recipe in
+                    
+                    NavigationLink {
+                        RecipeView(smartRecipe: recipe, showDiscardButton: false) {
+                            
+                        }
+                    } label: {
+                        Text(recipe.response!.title)
+                    }
+
+                    
+                }
                 
             }
             .navigationTitle("Saved Recipes")
 
+        }
+        .onAppear{
+            self.savedRecipes = RecipeStorage.loadSavedRecipes()
         }
     }
 }

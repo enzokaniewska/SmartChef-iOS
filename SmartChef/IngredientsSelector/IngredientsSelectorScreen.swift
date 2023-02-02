@@ -10,7 +10,7 @@ import SwiftUI
 struct IngredientsSelectorScreen: View {
     
     @State var selectedIngredients:[Ingredient] = []
-    @State var selectedCategory:IngredientType = .fruit
+    @State var selectedCategory:IngredientType = .meat
     @Binding var recipeState:RecipeState
     @Binding var smartRecipe:SmartRecipe
     
@@ -29,6 +29,7 @@ struct IngredientsSelectorScreen: View {
                             .bold()
                             .padding(.leading)
                             .padding(.top)
+                            .padding(.bottom)
                         Spacer()
                     }
                     
@@ -60,7 +61,8 @@ struct IngredientsSelectorScreen: View {
                     selectedIngredients.remove(at: index!)
                 }
             }
-            .frame(height: 260)
+            .frame(height: 165)
+            
             
             Button {
                 smartRecipe.setIngredients(ingredients: selectedIngredients)
@@ -71,7 +73,7 @@ struct IngredientsSelectorScreen: View {
                 Label("Generate Recipe", systemImage: "")
                     .labelStyle(.titleOnly)
                     .foregroundColor(Color(UIColor.systemBackground))
-                    .padding(.vertical,3)
+                    .padding(.vertical,4)
                     .padding(.horizontal, 30)
                     .font(.title3)
                     .bold()
@@ -79,6 +81,7 @@ struct IngredientsSelectorScreen: View {
             }
             .buttonStyle(.borderedProminent)
             .tint(.green)
+            .padding(.bottom)
             
         }
     }

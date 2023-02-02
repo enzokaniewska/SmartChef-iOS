@@ -14,29 +14,28 @@ struct SelectedIngredientsBox: View {
     var didRemoveItem : (Ingredient) -> Void
     
     let columns = [
-        GridItem(.adaptive(minimum:80)),
-        GridItem(.adaptive(minimum:80)),
-        GridItem(.adaptive(minimum:80)),
-        GridItem(.adaptive(minimum:80))
+        GridItem(.flexible(minimum: 80)),
     ]
     
     var body: some View {
         
         VStack {
+            
             Rectangle()
                 .frame(height: 1)
-                .offset(y: -7)
-                .foregroundColor(.green)
-                .padding(.horizontal)
+                .foregroundColor(.secondary)
+                .offset(y: -15)
+                .shadow(radius: 4, y: -5)
             HStack {
-                Text("Your selected Ingredients")
+                Text("Your selection")
                     .font(.title3)
                     .padding(.leading, 25)
                     .foregroundColor(.primary)
                 Spacer()
             }
-            ScrollView {
-                LazyVGrid(columns: columns, alignment: .center, spacing: 40) {
+            
+            ScrollView(.horizontal) {
+                LazyHGrid(rows: columns, alignment: .center, spacing: 20) {
                     
                     ForEach(selectedIngredients){ ingredient in
                         
@@ -60,9 +59,11 @@ struct SelectedIngredientsBox: View {
                         }
                     }
                 }
-                .padding(10)
+                .padding(.top, 4)
+                .padding(.horizontal,10)
                 .padding(.bottom,20)
             }
+            
         }
     }
 }

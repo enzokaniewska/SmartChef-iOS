@@ -15,6 +15,7 @@ struct RecipeResponse{
     var instructions: [Step]
     var tools:[String]
     var optionalSteps: [Step]
+    var data:[String:Any]
     
     init?(json:[String:Any]){
         guard let title = json["title"] as? String,
@@ -27,6 +28,7 @@ struct RecipeResponse{
             return nil
         }
         
+        self.data = json
         self.title = title
         self.servingAmount = servingAmount
         self.tools = tools

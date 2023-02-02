@@ -11,7 +11,11 @@ struct IngredientSelectorView: View {
     
     @State var selectedCategory:IngredientType = .fruit
     
-    let columns = [GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible())]
+    let columns = [GridItem(.adaptive(minimum:100)),
+                   GridItem(.adaptive(minimum:100)),
+                   GridItem(.adaptive(minimum:100)),
+                   GridItem(.adaptive(minimum:100))]
+    
     var ingredients = Ingredient.testData
     var filteredIngredients: [Ingredient]{
         ingredients.filter{ $0.category == selectedCategory}
@@ -41,7 +45,7 @@ struct IngredientSelectorView: View {
                         .onTapGesture {
                             didSelectItem(ingredient)
                         }
-                        .frame(width: 80, height: 80)
+                        .frame(width: 70, height: 70)
                     
                 }
                 

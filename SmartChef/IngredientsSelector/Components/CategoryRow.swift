@@ -21,7 +21,7 @@ struct CategoryRow: View {
                     
                 Spacer()
             }
-            .padding(.top)
+            
             .padding(.leading)
             
             

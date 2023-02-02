@@ -8,8 +8,9 @@
 import Foundation
 
 
-class SmartRecipe{
+class SmartRecipe:Identifiable{
     
+    var id = UUID().uuidString
     var recipeRequest = RecipeRequest()
     var response: RecipeResponse?
     
