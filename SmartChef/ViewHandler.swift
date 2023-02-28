@@ -12,7 +12,8 @@ struct ViewHandler: View {
     //This view handles the states of creating the recipe
     //and shows the right view depending on which state the user is at
     
-    @State var recipeState:RecipeState
+    @EnvironmentObject var modelData:ModelData
+    @Binding var recipeState:RecipeState
     @State var smartRecipe = SmartRecipe()
     
     var body: some View {
@@ -22,6 +23,7 @@ struct ViewHandler: View {
         case .selectingIngredients:
             IngredientsSelectorScreen(recipeState: $recipeState, smartRecipe: $smartRecipe)
                 .transition(AnyTransition.asymmetric(insertion: .opacity, removal: .move(edge: .top).combined(with: .opacity)))
+                .environmentObject(modelData)
             
         case .waitingForResponse:
             LoadingScreen(smartRecipe: $smartRecipe, recipeState: $recipeState)
@@ -40,7 +42,8 @@ struct ViewHandler: View {
 
 struct ViewHandler_Previews: PreviewProvider {
     static var previews: some View {
-        ViewHandler(recipeState: .selectingIngredients)
+        ViewHandler(recipeState: .constant(.selectingIngredients))
+            .environmentObject(ModelData())
     }
 }
 

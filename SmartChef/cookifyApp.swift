@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct cookifyApp: App {
+    
+    @StateObject private var modelData = ModelData()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(modelData)
+                
         }
     }
 }
@@ -19,5 +24,6 @@ struct cookifyApp: App {
 struct Previews_cookifyApp_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(ModelData())
     }
 }

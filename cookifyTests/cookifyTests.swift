@@ -10,18 +10,18 @@ import XCTest
 
 final class cookifyTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
+    
     func RecipeResponse_JsonDecoding() throws {
         let testResponse = RecipeResponse.getTestResponse()
-        XCTAssert(testResponse?.title == "Tuna Rice Pilaf" )
+        XCTAssert(testResponse?.name == "Tuna Rice Pilaf" )
     }
+    
+    func loadingLocalNutritionData() throws {
+        let modelData = ModelData()
+        XCTAssertNotNil(modelData.nutritionList["Apple, fresh"])
+    }
+    
+    
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

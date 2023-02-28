@@ -10,12 +10,17 @@ import Foundation
 
 class SmartRecipe:Identifiable{
     
+    
     var id = UUID().uuidString
     var recipeRequest = RecipeRequest()
     var response: RecipeResponse?
-    
+    var isBookmarked:Bool = false
     init(response: RecipeResponse){
         self.response = response
+    }
+    init(id: String, data: [String:Any]){
+        self.id = id
+        self.response = RecipeResponse(json: data)
     }
     init(){
         self.response = nil

@@ -24,7 +24,7 @@ struct RecipeListView: View {
                             
                         }
                     } label: {
-                        Text(recipe.response!.title)
+                        Text(recipe.response!.name)
                     }
 
                     

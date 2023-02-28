@@ -9,28 +9,29 @@ import Foundation
 
 struct RecipeResponse{
     
-    var title:String
-    var servingAmount:Int
+    var name:String
+    var servingAmount:Int?
     var ingredients: [RecipeIngredient]
-    var instructions: [Step]
+    var steps: [String]
     var tools:[String]
-    var optionalSteps: [Step]
+    var tips: [String]
     var data:[String:Any]
     
     init?(json:[String:Any]){
-        guard let title = json["title"] as? String,
-              let servingAmount = json["servingAmount"] as? Int,
+        guard let title = json["name"] as? String,
               let ingredientsJson = json["ingredients"] as? [[String:Any]],
-              let stepsJson = json["steps"] as? [[String:Any]],
+              let stepsJson = json["steps"] as? [String],
               let tools = json["tools"] as? [String],
-              let optionalStepsJson = json["optionalSteps"] as? [[String:Any]]
+              let tipsJson = json["tips"] as? [String]
         else {
             return nil
         }
         
+        
+        
         self.data = json
-        self.title = title
-        self.servingAmount = servingAmount
+        self.name = title
+        self.servingAmount = json["servingAmount"] as? Int
         self.tools = tools
         
         //convert json ingredients into model instances
@@ -38,27 +39,23 @@ struct RecipeResponse{
         for ingredientData in ingredientsJson{
             let name = ingredientData["name"] as! String
             let amount = ingredientData["amount"] as! String
-            let calories = ingredientData["kcal"] as! Int
             
-            ingredients.append(RecipeIngredient(name: name, amount: amount, caloties: calories))
+            ingredients.append(RecipeIngredient(name: name, amount: amount))
         }
         self.ingredients = ingredients
         //convert json instructions into model instances
-        var steps = [Step]()
-        for stepsData in stepsJson{
-            let number = stepsData["number"] as! Int
-            let description = stepsData["description"] as! String
-            steps.append(Step(number: number, description: description))
+        self.steps = []
+        for step in stepsJson{
+            steps.append(step)
+            
         }
-        self.instructions = steps
+        
         //convert json optional steps into model instances
-        var optionalSteps = [Step]()
-        for optionalStepsData in optionalStepsJson{
-            let number = optionalStepsData["number"] as! Int
-            let description = optionalStepsData["description"] as! String
-            optionalSteps.append(Step(number: number, description: description))
+        self.tips = []
+        for tip in tipsJson{
+            self.tips.append(tip)
         }
-        self.optionalSteps = optionalSteps
+        
 
     }
     

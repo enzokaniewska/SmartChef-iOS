@@ -12,15 +12,18 @@ struct RecipeStorage{
     private static let fileName = "savedRecipes.txt"
     
     
-    static func saveRecipe(response: RecipeResponse){
+    static func saveRecipe(recipe: SmartRecipe){
         
         let data = readFile()
         
         if let data = data{
-            var savedRecipesJson = getArray(fromData: data)
+            let savedRecipesJson = getArray(fromData: data)
             if var savedRecipesJson = savedRecipesJson {
                 
-                savedRecipesJson.append(response.data)
+                var newRecipeData = recipe.response!.data
+                newRecipeData["id"] = recipe.id
+            
+                savedRecipesJson.append(newRecipeData)
                 
                 let jsonData = try? JSONSerialization.data(withJSONObject: savedRecipesJson, options: .prettyPrinted)
                 
@@ -33,7 +36,10 @@ struct RecipeStorage{
                 
             }else{
                 
-                var savedRecipesJson = [response.data]
+                var newRecipeData = recipe.response!.data
+                newRecipeData["id"] = recipe.id
+                
+                let savedRecipesJson = [newRecipeData]
                 let jsonData = try? JSONSerialization.data(withJSONObject: savedRecipesJson, options: .prettyPrinted)
                 
                 if let jsonData = jsonData{
@@ -48,19 +54,18 @@ struct RecipeStorage{
         
     }
     
-    static func removeRecipe(response: RecipeResponse){
+    static func removeRecipe(smartRecipe: SmartRecipe){
         
         let data = readFile()
         
         if let data = data{
             
-            var json = getArray(fromData: data)
-            
-            if var json = json{
+            let savedRecipesJson = getArray(fromData: data)
+            if let savedRecipesJson = savedRecipesJson {
                 
-                json = json.filter{ $0["title"] as? String == response.title}
+                let newSavedRecipesJson = savedRecipesJson.filter{ $0["id"] as? String != smartRecipe.id}
                 
-                let updatedData = try? JSONSerialization.data(withJSONObject: json)
+                let updatedData = try? JSONSerialization.data(withJSONObject: newSavedRecipesJson)
                 
                 if let updatedData = updatedData{
                     
@@ -81,12 +86,17 @@ struct RecipeStorage{
         
         if let data = data{
             
-            let recipesJson = try? JSONSerialization.jsonObject(with: data) as? [[String:Any]]
+            let recipesJson = getArray(fromData: data)
             
             if let recipesJson = recipesJson{
                
                 for recipeData in recipesJson{
-                    recipes.append(SmartRecipe(response: RecipeResponse(json: recipeData)!))
+                    let id = recipeData["id"] as! String
+                    let newRecipe = SmartRecipe(id: id, data: recipeData)
+                    newRecipe.isBookmarked = true
+                    if newRecipe.response != nil{
+                        recipes.append(newRecipe)
+                    }
                 }
                 
                 
@@ -128,7 +138,15 @@ struct RecipeStorage{
     
     private static func getArray(fromData data:Data)->[[String:Any]]?{
         
-        return try? JSONSerialization.jsonObject(with: data, options: []) as? [[String:Any]]
+        do{
+            let json = try JSONSerialization.jsonObject(with: data, options: []) as? [[String:Any]]
+            return json
+        }catch{
+            print(error)
+        }
+        
+        return(nil)
+        
         
     }
     

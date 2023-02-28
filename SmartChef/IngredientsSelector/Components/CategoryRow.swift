@@ -17,28 +17,24 @@ struct CategoryRow: View {
             HStack {
                 Text("Categories")
                     .font(.title3)
-                    
-                    
+                    .bold()
                 Spacer()
             }
-            
             .padding(.leading)
-            
             
             ScrollView(.horizontal){
                 
-                HStack(spacing:15){
+                HStack(spacing: 5){
                     
                     ForEach(IngredientType.allCases, id: \.self){ category in
                         CategoryCell(category: category)
                             .onTapGesture {
                                 selectedCategory = category
                             }
-                            .foregroundColor(category == selectedCategory ? .green : .gray)
                     }
-                    
                 }
-                .padding(.horizontal)
+                .padding(.leading, 6)
+                .padding(.trailing)
             }
             .scrollIndicators(.hidden)
             

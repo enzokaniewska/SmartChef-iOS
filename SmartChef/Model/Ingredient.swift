@@ -13,24 +13,43 @@ struct Ingredient: Identifiable{
     
     var id:String
     var name:String
-    var image:Image
     var category: IngredientType
+    var nutritionData:NutrientData? = nil
     
 }
 
 enum IngredientType:String, CaseIterable{
-    case vegetable = "Vegetable"
-    case fruit = "Fruit"
-    case meat = "Meat"
-    case Carbs = "Carbs"
-    case Diary = "Diary"
+    case alcoholicBeverage =  "Alcoholic beverages"
+    case bakingIngredients = "Baking Ingredients"
+    case beverages = "Beverages"
+    case bread = "Bread"
+    case cereals = "Cereals"
+    case cheese = "Cheeses"
+    case dairyProduct = "Dairy Products"
+    case dressing = "Dressings"
+    case egg = "Eggs"
+    case fats = "Fats"
+    case fish = "Fish"
+    case breakfastCereal = "Flakes & Breakfast Cereal"
+    case fruit = "Fruits"
+    case herb = "Herbs"
+    case meat = "Meats"
+    case nutsAndSeeds = "Nuts and seeds"
+    case oil = "Oils"
+    case sauce = "Sauces"
+    case sausagesAndLuncheon = "Sausages & Luncheon Meat"
+    case snacks = "Snacks"
+    case spices = "Spices"
+    case sweets = "Sweets"
+    case vegetable = "Vegetables"
 }
 
 
 //Extension with test data
 extension Ingredient{
     
-    static let testData : [Ingredient] = [
+    /*
+     static let testData : [Ingredient] = [
         //Fruit
         Ingredient(id: UUID().uuidString, name: "Apple", image: Image("fruit0"), category: .fruit),
         Ingredient(id: UUID().uuidString, name: "Lime", image: Image("fruit1"), category: .fruit),
@@ -65,5 +84,6 @@ extension Ingredient{
         Ingredient(id: UUID().uuidString, name: "Couscous", image: Image("couscous"), category: .Carbs)
         
     ]
+     */
     
 }

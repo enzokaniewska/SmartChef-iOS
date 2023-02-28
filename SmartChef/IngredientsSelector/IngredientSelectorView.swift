@@ -9,6 +9,7 @@ import SwiftUI
 
 struct IngredientSelectorView: View {
     
+    @EnvironmentObject var modelData: ModelData
     @State var selectedCategory:IngredientType = .fruit
     
     let columns = [GridItem(.adaptive(minimum:100)),
@@ -16,10 +17,8 @@ struct IngredientSelectorView: View {
                    GridItem(.adaptive(minimum:100)),
                    GridItem(.adaptive(minimum:100))]
     
-    var ingredients = Ingredient.testData
-    var filteredIngredients: [Ingredient]{
-        ingredients.filter{ $0.category == selectedCategory}
-    }
+    
+   
     var didSelectItem : (Ingredient)->Void
     
     var body: some View {
@@ -31,26 +30,27 @@ struct IngredientSelectorView: View {
             HStack {
                 Text("Ingredients")
                     .font(.title3)
+                    .bold()
                     .padding(.leading)
                 
                 Spacer()
             }
             
-            LazyVGrid(columns: columns , spacing: 40) {
-                
-                ForEach(filteredIngredients){ingredient in
-                    
-                    IngredientCell(ingredient: ingredient)
-                        .transition(.opacity)
-                        .onTapGesture {
+            
+            ScrollView{
+                VStack(spacing: 10){
+                    ForEach(modelData.ingredientList.filter{ $0.category.rawValue == selectedCategory.rawValue}){ ingredient in
+                        
+                        IngredientListItem(ingredient: ingredient){
                             didSelectItem(ingredient)
                         }
-                        .frame(width: 70, height: 70)
+                        
+                    }
                     
                 }
-                
+                .padding(.top, 5)
+         
             }
-            .padding(.horizontal, 6)
             
         }
         
@@ -61,9 +61,14 @@ struct IngredientSelectorView: View {
 }
 
 struct IngredientSelectorView_Previews: PreviewProvider {
+    
+    
     static var previews: some View {
         IngredientSelectorView { ingredient in
             
         }
+        .environmentObject(ModelData())
+       
+        
     }
 }

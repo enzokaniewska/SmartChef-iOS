@@ -16,7 +16,6 @@ struct RecipeIngredient:Identifiable{
     var id = UUID().uuidString
     var name:String
     var amount:String
-    var caloties: Int
     
 }
 
@@ -29,7 +28,7 @@ struct Tool{
 struct Step:Identifiable{
     
     var id = UUID().uuidString
-    var number:Int
+    var number: Int
     var description:String
     
 }

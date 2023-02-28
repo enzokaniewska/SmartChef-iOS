@@ -20,7 +20,7 @@ struct RecipeView: View {
             VStack(alignment: .leading){
                 
                 HStack {
-                    Text(smartRecipe.response!.title)
+                    Text(smartRecipe.response!.name)
                         .font(.title)
                         .bold()
                         .padding()
@@ -33,19 +33,25 @@ struct RecipeView: View {
                         .font(.title)
                         .onTapGesture {
                             isBookmarked.toggle()
+                            smartRecipe.isBookmarked = isBookmarked
                             
                             if isBookmarked{
-                                RecipeStorage.saveRecipe(response:smartRecipe.response!)
+                                RecipeStorage.saveRecipe(recipe:smartRecipe)
+                            }else{
+                                RecipeStorage.removeRecipe(smartRecipe: smartRecipe)
                             }
                         }
                         .foregroundColor(.green)
                     
                     
                 }
-                Text("Serving amount: \(smartRecipe.response!.servingAmount)")
-                    .font(.title2)
-                    .bold()
-                    .padding()
+                if let servingAmount = smartRecipe.response!.servingAmount {
+                    Text("Serving amount: \(servingAmount)")
+                        .font(.title2)
+                        .bold()
+                        .padding()
+                }
+                
             
                 
                 Text("Ingredients:")
@@ -65,33 +71,24 @@ struct RecipeView: View {
                     .bold()
                     .padding()
                 
-                ForEach(smartRecipe.response!.instructions){ step in
-                    
-                    
-                    Text("Step \(step.number)")
-                        .font(.title3)
-                        .bold()
-                    
-                    Text(step.description)
+                ForEach(smartRecipe.response!.steps, id: \.self){ step in
+                
+                    Text(step)
                         .padding(.bottom)
                     
                 }
                 .padding(.horizontal)
                 
-                if(!smartRecipe.response!.optionalSteps.isEmpty){
+                if(!smartRecipe.response!.tips.isEmpty){
                     
-                    Text("Optional Steps")
+                    Text("Tips")
                         .font(.title2)
                         .bold()
                         .padding()
                     
-                    ForEach(smartRecipe.response!.optionalSteps){ optionalStep in
+                    ForEach(smartRecipe.response!.tips, id: \.self){ tip in
                         
-                        Text("Step \(optionalStep.number)")
-                            .font(.title3)
-                            .bold()
-                        
-                        Text(optionalStep.description)
+                        Text(tip)
                             .padding(.bottom)
                     }
                     .padding(.horizontal)
@@ -118,6 +115,9 @@ struct RecipeView: View {
                 
             }
             
+        }
+        .onAppear{
+            self.isBookmarked = smartRecipe.isBookmarked
         }
         
     }
