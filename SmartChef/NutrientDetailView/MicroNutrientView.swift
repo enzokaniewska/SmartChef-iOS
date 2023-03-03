@@ -34,9 +34,7 @@ struct MicroNutrientView: View {
                 }
                 
             }
-            
-            
-            
+         
         }
     }
 }

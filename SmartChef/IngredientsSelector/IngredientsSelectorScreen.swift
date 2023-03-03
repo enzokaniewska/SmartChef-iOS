@@ -23,20 +23,13 @@ struct IngredientsSelectorScreen: View {
         
          NavigationView{
              
-            VStack {
+             VStack(spacing: 0) {
                 
                 ScrollView {
                     
                     IngredientSelectorView { selectedIngredient in
                         //check if ingredient is already selected
-                        if !self.selectedIngredients.contains(where: { ingredient in
-                            return ingredient.id == selectedIngredient.id
-                        }){
-                            //if not, add it with animation
-                            withAnimation(.spring()){
-                                selectedIngredients.insert(selectedIngredient, at: 0)
-                            }
-                        }
+                        addItem(newIngredient: selectedIngredient)
                     }
                 }
                 
@@ -55,7 +48,32 @@ struct IngredientsSelectorScreen: View {
                 
             }
             .navigationTitle("Ingredients Selector")
-            .accentColor(.green)
+            .toolbar {
+                NavigationLink {
+                    SearchView { ingredient in
+                        addItem(newIngredient: ingredient)
+                    }
+                } label: {
+                    Label("Search", systemImage: "magnifyingglass")
+                        .foregroundColor(.green)
+                }
+
+                
+            }
+            
+        }
+        .accentColor(.green)
+        
+    }
+    
+    func addItem(newIngredient: Ingredient){
+        if !self.selectedIngredients.contains(where: { ingredient in
+            return ingredient.id == newIngredient.id
+        }){
+            //if not, add it with animation
+            withAnimation(.spring()){
+                selectedIngredients.insert(newIngredient, at: 0)
+            }
         }
     }
 }

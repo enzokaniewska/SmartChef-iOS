@@ -13,6 +13,7 @@ struct SelectedIngredientsBox: View {
     @State var minimized = true
     @Binding var recipeState: RecipeState
     var didRemoveItem : (Ingredient) -> Void
+    
     var body: some View {
         
         VStack {
@@ -33,7 +34,7 @@ struct SelectedIngredientsBox: View {
                 Text(minimized ? "\(selectedItems.count) Items selected" : "Your selected Items")
                     .font(.title2)
                     .foregroundColor(.white)
-                    .animation(.easeIn(duration: 0.1), value: minimized)
+                    .animation(.easeInOut(duration: 0.3), value: minimized)
                     .clipped()
                 
                 if !minimized{
@@ -54,6 +55,8 @@ struct SelectedIngredientsBox: View {
         }
         .background(.green)
         .animation(.spring(), value: minimized)
+        
+        
     }
 }
 

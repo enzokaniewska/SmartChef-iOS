@@ -16,6 +16,35 @@ struct Ingredient: Identifiable{
     var category: IngredientType
     var nutritionData:NutrientData? = nil
     
+    init?(json: [String:Any]){
+        
+        if let id = json["id"] as? String{
+            self.id = id
+        }else{
+            self.id = UUID().uuidString
+        }
+        
+        if let name = json["name"] as? String{
+            self.name = name
+        }else{
+            return nil
+        }
+        
+        if let category = IngredientType(rawValue: json["category"] as? String ?? ""){
+            self.category = category
+        }else{
+            return nil
+        }
+        
+        self.nutritionData = NutrientData(ingredientData: json)
+    }
+    
+    init(id: String, name: String, category: IngredientType){
+        self.id = id
+        self.name = name
+        self.category = category
+    }
+    
 }
 
 enum IngredientType:String, CaseIterable{

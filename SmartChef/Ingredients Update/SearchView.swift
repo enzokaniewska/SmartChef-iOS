@@ -10,23 +10,25 @@ import SwiftUI
 struct SearchView: View {
     
     @State var textInput = ""
-    @State var searchResults = [String]()
+    @State var searchResults = [Ingredient]()
     @State var submit = false
+    
+    var didSelectItem: ((Ingredient)->Void)? = nil
     var body: some View {
-        VStack{
+        ScrollView{
             
             HStack {
                 TextField("type in ingredient", text: $textInput)
+                    .onChange(of: textInput) { newValue in
+                        doSearch()
+                    }
                     
                     
                 Label("search", systemImage: "magnifyingglass")
                     .labelStyle(.iconOnly)
+                    .foregroundColor(.green)
                     .onTapGesture {
-                        SmartChef.searchIngredients(searchInput: textInput) { result, error in
-                            if let result = result, error == nil{
-                                self.searchResults = result
-                            }
-                        }
+                        
                     }
             }
             .padding()
@@ -34,15 +36,31 @@ struct SearchView: View {
                 RoundedRectangle(cornerRadius: 20)
                     .stroke(Color.secondary, lineWidth: 0.3)
             }
-            .padding()
+            .padding(.horizontal)
     
             
             
-            ForEach(searchResults, id: \.self){ result in
-                Text(result)
+            
+            ForEach(searchResults){ ingredient in
+                IngredientListItem(ingredient: ingredient) {
+                    if didSelectItem != nil{
+                        didSelectItem!(ingredient)
+                    }
+                }
             }
             
+            Spacer()
             
+            
+        }
+        .tint(.green)
+    }
+    
+    func doSearch(){
+        SmartChef.searchIngredients(searchInput: textInput) { result, error in
+            if let result = result, error == nil{
+                self.searchResults = result
+            }
         }
     }
 }

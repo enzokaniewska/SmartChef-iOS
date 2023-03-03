@@ -52,7 +52,7 @@ struct SmartChef{
         
     }
     
-    static func getAllNutrients(onCompletion: @escaping ([NutrientData]?, Error?)->Void){
+    static func getAllIngredients(onCompletion: @escaping ([Ingredient]?, Error?)->Void){
         
         let url = URL(string: "https://info.smartchef.ai/ingredients")!
         
@@ -67,15 +67,17 @@ struct SmartChef{
                 onCompletion(nil, error)
                 return
             }
-            var nutrientArr = [NutrientData]()
+            var ingredientArr = [Ingredient]()
             let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
             if let responseJSON = responseJSON as? [[String: Any]] {
                 
                 for ingredientData in responseJSON {
-                    nutrientArr.append(NutrientData(ingredientData: ingredientData))
+                    if let ingredient = Ingredient(json: ingredientData){
+                        ingredientArr.append(ingredient)
+                    }
                 }
                 
-                onCompletion(nutrientArr, nil)
+                onCompletion(ingredientArr, nil)
             
                 
             }
@@ -88,26 +90,45 @@ struct SmartChef{
         
     }
     
-    static func getAllIngredients(onCompletion: @escaping ([Ingredient]?, Error?)->Void){
+    static func getIngredientsByCategory(category: IngredientType, onCompletion: @escaping ([Ingredient]?, Error?)->Void){
         
-        getAllNutrients { nutrientDataArr, error in
-            if let nutrientDataArr = nutrientDataArr, error == nil{
-                let ingredientsArr = nutrientDataArr.map{
-                    Ingredient(id: UUID().uuidString,
-                               name: $0.title,
-                               category: IngredientType(rawValue: $0.category)!
-                    )
-                }
-                onCompletion(ingredientsArr, nil)
-            }else{
+        let url = URL(string: "https://info.smartchef.ai/ingredients/category?val=\(category.rawValue)")!
+        
+        // create post request
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+       
+        //create URL session and define escaping closure
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                print(error?.localizedDescription ?? "No data")
                 onCompletion(nil, error)
+                return
             }
+            var ingredientArr = [Ingredient]()
+            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+            if let responseJSON = responseJSON as? [[String: Any]] {
+                
+                for ingredientData in responseJSON {
+                    if let ingredient = Ingredient(json: ingredientData){
+                        ingredientArr.append(ingredient)
+                    }
+                }
+                
+                onCompletion(ingredientArr, nil)
+            
+                
+            }
+            
+            onCompletion(nil, error)
+            
         }
+        task.resume()
+
+        
     }
     
-
-    
-    static func searchIngredients(searchInput:String, onCompletion: @escaping ([String]?, Error?)->Void){
+    static func searchIngredients(searchInput:String, onCompletion: @escaping ([Ingredient]?, Error?)->Void){
         
         let url = URL(string: "https://info.smartchef.ai/searchIngredients?query=\(searchInput)")!
         
@@ -121,16 +142,18 @@ struct SmartChef{
                 onCompletion(nil, error)
                 return
             }
-            var results = [String]()
+            var results = [Ingredient]()
             let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
             if let responseJSON = responseJSON as? [[String: Any]] {
                 
-                results = responseJSON.map { $0["name"] as? String ?? "n/a" }
+                for ingredientJson in responseJSON{
+                    if let ingredient = Ingredient(json: ingredientJson){
+                        results.append(ingredient)
+                    }
+                }
                 onCompletion(results, nil)
-            
                 
             }
-            
             onCompletion(nil, error)
             
         }

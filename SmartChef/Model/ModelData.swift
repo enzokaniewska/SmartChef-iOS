@@ -31,15 +31,9 @@ func getIngredientList() -> [Ingredient]{
             
             for object in jsonArray{
                 
-                let ingredientName = object["name"] as? String ?? "n/a"
-                let nutritionIngredient = NutrientData(ingredientData: object)
-                ingredientList.append(
-                    Ingredient(
-                        id: UUID().uuidString,
-                        name: ingredientName,
-                        category: IngredientType(rawValue: nutritionIngredient.category)!,
-                        nutritionData: nutritionIngredient)
-                )
+                if let ingredient = Ingredient(json: object){
+                    ingredientList.append(ingredient)
+                }
                 
             }
             

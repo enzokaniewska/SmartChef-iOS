@@ -91,12 +91,14 @@ struct RecipeStorage{
             if let recipesJson = recipesJson{
                
                 for recipeData in recipesJson{
-                    let id = recipeData["id"] as! String
-                    let newRecipe = SmartRecipe(id: id, data: recipeData)
-                    newRecipe.isBookmarked = true
-                    if newRecipe.response != nil{
-                        recipes.append(newRecipe)
+                    if let id = recipeData["id"] as? String{
+                        let newRecipe = SmartRecipe(id: id, data: recipeData)
+                        newRecipe.isBookmarked = true
+                        if newRecipe.response != nil{
+                            recipes.append(newRecipe)
+                        }
                     }
+                    
                 }
                 
                 

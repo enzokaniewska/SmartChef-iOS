@@ -23,7 +23,7 @@ struct NutrientDetailView: View {
                 Text("Energy")
                     .bold()
                 Spacer()
-                Text("\(Int(ingredient.nutritionData!.calories)) calories")
+                Text("\(Int(ingredient.nutritionData!.calories)) kcal")
 
             }.padding(.bottom)
             

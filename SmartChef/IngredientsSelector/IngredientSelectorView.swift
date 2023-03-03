@@ -23,11 +23,12 @@ struct IngredientSelectorView: View {
     
     var body: some View {
         
-        VStack{
+        VStack(spacing: 0){
            
             CategoryRow(selectedCategory: $selectedCategory)
+                .layoutPriority(1)
             
-            HStack {
+            /*HStack {
                 Text("Ingredients")
                     .font(.title3)
                     .bold()
@@ -36,27 +37,20 @@ struct IngredientSelectorView: View {
                 Spacer()
             }
             
+            */
             
             ScrollView{
-                VStack(spacing: 10){
-                    ForEach(modelData.ingredientList.filter{ $0.category.rawValue == selectedCategory.rawValue}){ ingredient in
-                        
-                        IngredientListItem(ingredient: ingredient){
-                            didSelectItem(ingredient)
-                        }
-                        
-                    }
+                ForEach(modelData.ingredientList.filter{ $0.category.rawValue == selectedCategory.rawValue}){ ingredient in
                     
+                    IngredientListItem(ingredient: ingredient){
+                        didSelectItem(ingredient)
+                    }
                 }
-                .padding(.top, 5)
-         
             }
+            .padding(.top, 5)
             
         }
-        
-        
-        
-        
+  
     }
 }
 

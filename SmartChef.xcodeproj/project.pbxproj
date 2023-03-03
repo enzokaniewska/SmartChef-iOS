@@ -20,7 +20,7 @@
 		EE07D35E29A630AC006E96C2 /* SelectedIngredientsBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE07D35D29A630AC006E96C2 /* SelectedIngredientsBox.swift */; };
 		EE0ABC2C298BC27700FF281B /* RecipeStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0ABC2B298BC27700FF281B /* RecipeStorage.swift */; };
 		EE0ABC2E298BC2FA00FF281B /* savedRecipes.txt in Resources */ = {isa = PBXBuildFile; fileRef = EE0ABC2D298BC2FA00FF281B /* savedRecipes.txt */; };
-		EE1B684329743EDD00412267 /* cookifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1B684229743EDD00412267 /* cookifyApp.swift */; };
+		EE1B684329743EDD00412267 /* SmartChefApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1B684229743EDD00412267 /* SmartChefApp.swift */; };
 		EE1B684529743EDD00412267 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1B684429743EDD00412267 /* ContentView.swift */; };
 		EE1B684729743EDE00412267 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE1B684629743EDE00412267 /* Assets.xcassets */; };
 		EE1B684A29743EDE00412267 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE1B684929743EDE00412267 /* Preview Assets.xcassets */; };
@@ -80,7 +80,7 @@
 		EE0ABC2B298BC27700FF281B /* RecipeStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStorage.swift; sourceTree = "<group>"; };
 		EE0ABC2D298BC2FA00FF281B /* savedRecipes.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = savedRecipes.txt; sourceTree = "<group>"; };
 		EE1B683F29743EDD00412267 /* SmartChef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartChef.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE1B684229743EDD00412267 /* cookifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cookifyApp.swift; sourceTree = "<group>"; };
+		EE1B684229743EDD00412267 /* SmartChefApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartChefApp.swift; sourceTree = "<group>"; };
 		EE1B684429743EDD00412267 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EE1B684629743EDE00412267 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE1B684929743EDE00412267 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -187,7 +187,7 @@
 		EE1B684129743EDD00412267 /* SmartChef */ = {
 			isa = PBXGroup;
 			children = (
-				EE1B684229743EDD00412267 /* cookifyApp.swift */,
+				EE1B684229743EDD00412267 /* SmartChefApp.swift */,
 				EE1B684429743EDD00412267 /* ContentView.swift */,
 				EEF86143297803C200452F43 /* ViewHandler.swift */,
 				EE07D356299FA284006E96C2 /* NutrientDetailView */,
@@ -472,7 +472,7 @@
 				EE0ABC2C298BC27700FF281B /* RecipeStorage.swift in Sources */,
 				EE1B6874297451A200412267 /* CategoryRow.swift in Sources */,
 				EE07D355299FA097006E96C2 /* PieChartView.swift in Sources */,
-				EE1B684329743EDD00412267 /* cookifyApp.swift in Sources */,
+				EE1B684329743EDD00412267 /* SmartChefApp.swift in Sources */,
 				EE07D33B2993D91B006E96C2 /* Nutrients.swift in Sources */,
 				EE1B687F2975FAAB00412267 /* CategoryCell.swift in Sources */,
 			);
@@ -646,7 +646,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "enzokaniewska.Smart-Chef";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -676,7 +676,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "enzokaniewska.Smart-Chef";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

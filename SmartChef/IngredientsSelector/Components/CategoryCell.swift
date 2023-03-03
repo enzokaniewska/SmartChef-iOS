@@ -13,16 +13,25 @@ struct CategoryCell: View {
     @State var isSelected = false
     var body: some View {
         
-        VStack {
-                 
+        VStack(spacing: -10) {
+            
+            Image(category.rawValue)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 60)
+                .padding(10)
+                .padding(.horizontal, 20)
+                .background(.tertiary)
+                .cornerRadius(10)
+                
+                
             Text(category.rawValue)
                 .lineLimit(nil)
-                .foregroundColor(.white)
+                .multilineTextAlignment(.center)
                 .frame(width: 130, height: 70)
     
         }
-        .background(.green)
-        .cornerRadius(10)
+        
       
     }
 }
